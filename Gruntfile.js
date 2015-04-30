@@ -35,7 +35,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-less");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-browserify");
-  grunt.loadNpmTasks("grunt-react");
   grunt.loadNpmTasks("grunt-contrib-uglify");
 
   grunt.event.on("watch", function(action, filepath, target) {

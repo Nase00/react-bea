@@ -1,12 +1,30 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     browserify: {
-      options: {
-        transform: [ require("grunt-react").browserify ]
+      dev: {
+        options: {
+          transform: [ reactify ],
+          browserifyOptions: {
+              extensions: ['.jsx'],
+              debug: true
+          },
+          watch: true,
+          keepAlive: true
+        },
+        files: {
+          "build/application.js": "src/application.jsx"
+        }
       },
-      app: {
-        src: "src/application.jsx",
-        dest: "build/application.js"
+      prod: {
+        files: {
+            "build/application.js": "src/application.jsx"
+        },
+        options: {
+          transform: [reactify],
+          browserifyOptions: {
+            extensions: ['.jsx']
+          }
+        }
       }
     },
     less: {

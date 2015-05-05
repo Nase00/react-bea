@@ -1,4 +1,6 @@
 module.exports = function(grunt) {
+  var reactify = require('grunt-react').browserify;
+
   grunt.initConfig({
     browserify: {
       dev: {
@@ -59,4 +61,8 @@ module.exports = function(grunt) {
   grunt.event.on("watch", function(action, filepath, target) {
     grunt.log.writeln(target + ": " + filepath + " has " + action);
   });
+
+  grunt.registerTask('default', ['browserify:prod']);
+  grunt.registerTask('dev', ['browserify:dev']);
+  grunt.registerTask('prod', ['browserify:prod']);
 };
